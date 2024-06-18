@@ -1,2 +1,2 @@
-small time python dev.
-used to do shell scripting but lord knows job prospects are favouring python.
+making a text editor written in python 
+made with the tkinter library that comes with python
