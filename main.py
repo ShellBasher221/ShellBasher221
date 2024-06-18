@@ -6,8 +6,8 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 def open_file(window, text_edit):
     filepath = askopenfilename(filetypes=[("text files", "*.txt"),
                                            ("python files", "*.py"),
-                                           ("all files", "*.*")],
-                                           initialdir="C:\\Users\\Brand\\Download\\C")
+                                           ("all files", "*.*")])
+                                           
     if not filepath:
         return
     text_edit.delete(1.0,END)
@@ -19,8 +19,7 @@ def open_file(window, text_edit):
 def save_file(window, text_edit):
     filepath = asksaveasfilename(filetypes=[("text files", "*.txt"),
                                            ("python files", "*.py"),
-                                           ("all files", "*.*")],
-                                           initialdir="C:\\Users\\Brand\\Download\\C")
+                                           ("all files", "*.*")])
     
     if not filepath:
         return 
