@@ -1,8 +1,6 @@
 from tkinter import *
 from tkinter.filedialog import askopenfilename, asksaveasfilename
 
-#button commands
-
 def open_file(window, text_edit):
     filepath = askopenfilename(filetypes=[("text files", "*.txt"),
                                            ("python files", "*.py"),
@@ -35,7 +33,6 @@ def darkmode(text_edit):
 def lightmode(text_edit):
     text_edit.configure(background="white", foreground="black", insertbackground="black")
 
-#window and buttons
 def main()-> None:
     window = Tk()
     window.title("Text editor")
@@ -46,8 +43,10 @@ def main()-> None:
     text_edit.grid(row=0, column=1)
 
     frame = Frame(window, relief=RAISED, bd=2)
+
     save_button = Button(frame, text="Save", command=lambda: save_file(window, text_edit))
     open_button = Button(frame, text="Open", command=lambda: open_file(window, text_edit))
+
     dark_button = Button(frame, text="Dark mode", command=lambda: darkmode(text_edit))
     light_button = Button(frame, text="Light mode", command=lambda: lightmode(text_edit))
 
