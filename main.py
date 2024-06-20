@@ -3,7 +3,6 @@ from tkinter.filedialog import askopenfilename, asksaveasfilename
 
 def open_file(window, text_edit):
     filepath = askopenfilename(filetypes=[("text files", "*.txt"),
-                                           ("python files", "*.py"),
                                            ("all files", "*.*")])
                                            
     if not filepath:
@@ -15,9 +14,8 @@ def open_file(window, text_edit):
     window.title(f"Open file: {filepath}")
 
 def save_file(window, text_edit):
-    filepath = asksaveasfilename(filetypes=[("text files", "*.txt"),
-                                           ("python files", "*.py"),
-                                           ("all files", "*.*")])
+    filepath = asksaveasfilename(filetypes=[("all files", "*.*"),
+                                            ("text files", "*.txt")])
     
     if not filepath:
         return 
@@ -50,10 +48,16 @@ def main()-> None:
     dark_button = Button(frame, text="Dark mode", command=lambda: darkmode(text_edit))
     light_button = Button(frame, text="Light mode", command=lambda: lightmode(text_edit))
 
+    #TODO make a scroll bar for the text area
+
     save_button.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
     open_button.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
+    
     dark_button.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
     light_button.grid(row=3, column=0, pady=5, padx=5, sticky="ew")      
+    
+    # grid method space for the TODO
+
     frame.grid(row=0, column=0, sticky="ns")
 
     window.bind("<Control-s>", lambda x: save_file(window, text_edit))
