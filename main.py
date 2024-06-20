@@ -29,6 +29,12 @@ def save_file(window, text_edit):
         f.write(content)
     window.title(f"Open file: {filepath}")
 
+def darkmode(text_edit):
+    text_edit.configure(background="black", foreground="white", insertbackground="white")
+
+def lightmode(text_edit):
+    text_edit.configure(background="white", foreground="black", insertbackground="black")
+
 #window and buttons
 def main()-> None:
     window = Tk()
@@ -42,9 +48,13 @@ def main()-> None:
     frame = Frame(window, relief=RAISED, bd=2)
     save_button = Button(frame, text="Save", command=lambda: save_file(window, text_edit))
     open_button = Button(frame, text="Open", command=lambda: open_file(window, text_edit))
+    dark_button = Button(frame, text="Dark mode", command=lambda: darkmode(text_edit))
+    light_button = Button(frame, text="Light mode", command=lambda: lightmode(text_edit))
 
     save_button.grid(row=0, column=0, padx=5, pady=5, sticky="ew")
-    open_button.grid(row=1, column=0, padx=5, sticky="ew")
+    open_button.grid(row=1, column=0, padx=5, pady=5, sticky="ew")
+    dark_button.grid(row=2, column=0, padx=5, pady=5, sticky="ew")
+    light_button.grid(row=3, column=0, pady=5, padx=5, sticky="ew")      
     frame.grid(row=0, column=0, sticky="ns")
 
     window.bind("<Control-s>", lambda x: save_file(window, text_edit))
