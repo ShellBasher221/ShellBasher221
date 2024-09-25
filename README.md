@@ -1,2 +1,1 @@
-making a text editor written in python 
-made with the tkinter library that comes with python
+I have no idea what im doing and everything I do should be looked at with incredible scepticism 
